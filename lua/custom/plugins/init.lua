@@ -3,16 +3,4 @@
 --
 -- See the kickstart.nvim README for more information
 
-return {
-  { 'pocco81/auto-save.nvim' },
-  'github/copilot.vim',
-  {
-    'ibhagwan/fzf-lua',
-    -- optional for icon support
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function()
-      -- calling `setup` is optional for customization
-      require('fzf-lua').setup {}
-    end,
-  },
-}
+return {}

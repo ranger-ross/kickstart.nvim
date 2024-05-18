@@ -198,6 +198,12 @@ vim.keymap.set('n', '<M-1>', function()
   api.tree.toggle()
 end)
 
+-- Use Shift+Tab to accept Copilot suggestions
+vim.keymap.set('i', '<S-Tab>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false,
+})
+
 --  See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
@@ -643,6 +649,14 @@ require('lazy').setup({
         },
       },
     },
+  },
+  {
+    'MysticalDevil/inlay-hints.nvim',
+    event = 'LspAttach',
+    dependencies = { 'neovim/nvim-lspconfig' },
+    config = function()
+      require('inlay-hints').setup()
+    end,
   },
   { -- Autoformat
     'stevearc/conform.nvim',

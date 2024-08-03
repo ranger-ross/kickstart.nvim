@@ -4,6 +4,7 @@
 -- See the kickstart.nvim README for more information
 
 vim.o.cmdheight = 0
+vim.o.statuscolumn = '%s %l %r'
 
 -- Nvim Tree config
 vim.keymap.set('n', '<leader><leader>', function()

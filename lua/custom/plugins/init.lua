@@ -6,7 +6,7 @@
 vim.o.cmdheight = 0
 
 -- Nvim Tree config
-vim.keymap.set('n', '<M-1>', function()
+vim.keymap.set('n', '<leader><leader>', function()
   local api = require 'nvim-tree.api'
   api.tree.toggle()
 end)

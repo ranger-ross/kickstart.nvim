@@ -190,6 +190,18 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Workaround for nvim bug
+-- https://github.com/neovim/neovim/issues/30985#issuecomment-2447329525
+for _, method in ipairs { 'textDocument/diagnostic', 'workspace/diagnostic' } do
+  local default_diagnostic_handler = vim.lsp.handlers[method]
+  vim.lsp.handlers[method] = function(err, result, context, config)
+    if err ~= nil and err.code == -32802 then
+      return
+    end
+    return default_diagnostic_handler(err, result, context, config)
+  end
+end
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

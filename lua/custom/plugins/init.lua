@@ -69,6 +69,7 @@ return {
     config = function()
       require('nvim-tree').setup {
         filters = { git_ignored = false, dotfiles = false },
+        update_focused_file = { enable = true },
       }
     end,
   },

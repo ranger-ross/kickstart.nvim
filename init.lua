@@ -256,6 +256,8 @@ require('lazy').setup({
   -- See `:help gitsigns` to understand what the configuration keys do
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
+    -- There appears to be an issue with GitSigns and nvim tree. So pinning last working version.
+    commit = '9b36d497495436c135659902054ee637e0ba6021',
     opts = {
       current_line_blame = true,
       base = 'HEAD', -- Show both staged and unstaged changes

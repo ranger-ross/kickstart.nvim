@@ -3,6 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 
+vim.o.tabstop = 4
 vim.o.cmdheight = 0
 vim.o.statuscolumn = '%s %l %r'
 

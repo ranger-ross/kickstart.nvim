@@ -423,6 +423,14 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 
+      -- Add line numbers to telescope preview
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'TelescopePreviewerLoaded',
+        callback = function()
+          vim.opt_local.number = true
+        end,
+      })
+
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<C-f>', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.

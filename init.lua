@@ -394,6 +394,12 @@ require('lazy').setup({
         --
         defaults = {
           layout_strategy = 'vertical',
+          mappings = {
+            i = {
+              ['<S-Up>'] = require('telescope.actions').cycle_history_prev,
+              ['<S-Down>'] = require('telescope.actions').cycle_history_next,
+            },
+          },
         },
         pickers = {
           lsp_references = {
